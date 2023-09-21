@@ -1,8 +1,9 @@
 import {useState, useEffect} from "react"
 import axios from "axios"
+import AddTournament from "./AddTournamentPage";
 
 
-function TournamentList() {
+function TournamentListPage() {
     const [tournaments, setTournaments] = useState([]);
 
     const getAllTournaments = () => {
@@ -27,14 +28,14 @@ function TournamentList() {
     return (
         <div className="TournamentList">
 
-            <AddProject refreshProjects={getAllTournaments} />
+            <AddTournament refreshProjects={getAllTournaments} />
 
-            {projects.map((project) => (
-                <ProjectCard key={project._id} {...project} />
+            {tournaments.map((tournament) => (
+                <TournamentCard key={tournament._id} {...project} />
             ))}
 
         </div>
     );
 }
 
-export default TournamentList;
+export default TournamentListPage;

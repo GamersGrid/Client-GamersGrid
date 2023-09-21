@@ -6,7 +6,7 @@ import axios from "axios";
 function Signup(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [name, setUserName] = useState("");
+    const [username, setUserName] = useState("");
     const [errorMessage, setErrorMessage] = useState(undefined);
 
     const navigate = useNavigate();
@@ -23,10 +23,13 @@ function Signup(props) {
 
         axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
             .then((response) => {
+                console.log(response.data)
                 navigate('/login');
             })
             .catch((error) => {
                 const errorDescription = error.response.data.message;
+                console.log(error)
+                console.log(error.response.data.message)
                 setErrorMessage(errorDescription);
             })
     };

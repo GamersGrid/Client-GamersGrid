@@ -31,7 +31,7 @@ function TournamentListPage() {
             <AddTournament refreshProjects={getAllTournaments} />
 
             {tournaments.map((tournament) => (
-                <TournamentCard key={tournament._id} {...project} />
+                <TournamentCard key={tournament._id} {...tournament} />
             ))}
 
         </div>

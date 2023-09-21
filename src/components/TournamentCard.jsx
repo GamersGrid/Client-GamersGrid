@@ -4,7 +4,7 @@ function TournamentCard({ title, _id }) {
 
     return (
         <div className="ProjectCard card">
-            <Link to={`/projects/${_id}`}>
+            <Link to={`/tournaments/${_id}`}>
                 <h3>{title}</h3>
             </Link>
             

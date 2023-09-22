@@ -1,11 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import "../App.css";
+import { useNavigate } from "react-router-dom";
 
 function AddTournament(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -24,8 +25,9 @@ function AddTournament(props) {
         // Reset the state
         setTitle("");
         setDescription("");
-
+        navigate("/tournaments")
         props.refreshTournaments();
+        
       })
       .catch((error) => console.log(error));
   };

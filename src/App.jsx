@@ -10,6 +10,8 @@ import TournamentListPage from './pages/TournamentListPage';
 import IsAnon from './components/isAnon';
 import IsPrivate from './components/IsPrivate';
 import AddTournamentPage from './pages/AddTournamentPage';
+import TournamentDetailsPage from './pages/TournamentDetailsPage';
+import EditTournamentPage from './pages/EditTournamentPage';
 function App() {
   
 
@@ -24,6 +26,8 @@ function App() {
         <Route path="/signup" element={<IsAnon> <Signup /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <Login /> </IsAnon>} />
         <Route path="/addtournament" element={<AddTournamentPage/>}/>
+        <Route path="/tournaments/:tournamentId" element={<TournamentDetailsPage/>}/>
+        <Route path="/tournaments/edit/:tournamentId" element={<EditTournamentPage />}/>
 
       </Routes>
     </>

@@ -1,12 +1,14 @@
-import {useState, useEffect} from "react"
-import axios from "axios"
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
 import TournamentCard from "../components/TournamentCard";
 
 
-function TournamentListPage() {
-    const [tournaments, setTournaments] = useState([]);
+function tournamentListPage() {
+    const [tournaments, settournaments] = useState([]);
 
-    const getAllTournaments = () => {
+    const getAlltournaments = () => {
 
         const storedToken = localStorage.getItem("authToken");
 
@@ -15,28 +17,24 @@ function TournamentListPage() {
                 `${import.meta.env.VITE_API_URL}/api/tournaments`,
                 { headers: { Authorization: `Bearer ${storedToken}` } }
             )
-            .then((response) => setTournaments(response.data))
+            .then((response) => settournaments(response.data))
             .catch((error) => console.log(error));
     };
 
 
     useEffect(() => {
-        getAllTournaments();
+        getAlltournaments();
     }, []);
 
 
-    const tournamentsList = tournaments.map((tournament) =>{ 
-        console.log(tournamentsList)
-        return(
-        <div key={tournament._id}>
-                <h3>{tournament.title}</h3>
-                <h3>{tournament.description}</h3>
-            </div>)
-    })
     return (
-        <>
-        {tournaments ?  : <p>loading....</p>  })
-        </>
-        }
+        <div className="tournamentListPage">
+            {tournaments.map((tournament) => (
+                <TournamentCard key={tournament._id} {...tournament} />
+            ))}
 
-export default TournamentListPage;
+        </div>
+    );
+}
+
+export default tournamentListPage;

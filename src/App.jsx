@@ -9,7 +9,7 @@ import Signup from './pages/SignupPage';
 import TournamentListPage from './pages/TournamentListPage';
 import IsAnon from './components/isAnon';
 import IsPrivate from './components/IsPrivate';
-
+import AddTournamentPage from './pages/AddTournamentPage';
 function App() {
   
 
@@ -23,6 +23,7 @@ function App() {
         <Route path="/tournaments" element={<TournamentListPage/>}/>
         <Route path="/signup" element={<IsAnon> <Signup /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <Login /> </IsAnon>} />
+        <Route path="/addtournament" element={<AddTournamentPage/>}/>
 
       </Routes>
     </>

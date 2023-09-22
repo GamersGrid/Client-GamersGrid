@@ -16,9 +16,11 @@ function Navbar() {
       {isLoggedIn && (
         <>
           <Link to="/tournaments">
-            <button>tournaments</button>
+            <button>Tournaments</button>
           </Link>
-
+          <Link to="/addtournament">
+            <button>Add Tournament</button>
+          </Link>
           <button onClick={logOutUser}>Logout</button>
           <span>{user && user.name}</span>
         </>

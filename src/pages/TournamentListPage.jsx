@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 import axios from "axios"
-import AddTournament from "./AddTournamentPage";
+import TournamentCard from "../components/TournamentCard";
 
 
 function TournamentListPage() {
@@ -25,17 +25,18 @@ function TournamentListPage() {
     }, []);
 
 
+    const tournamentsList = tournaments.map((tournament) =>{ 
+        console.log(tournamentsList)
+        return(
+        <div key={tournament._id}>
+                <h3>{tournament.title}</h3>
+                <h3>{tournament.description}</h3>
+            </div>)
+    })
     return (
-        <div className="TournamentList">
-
-            <AddTournament refreshTournaments={getAllTournaments} />
-
-            {tournaments.map((tournament) => (
-                <TournamentCard key={tournament._id} {...tournaments} />
-            ))}
-
-        </div>
-    );
-}
+        <>
+        {tournaments ?  : <p>loading....</p>  })
+        </>
+        }
 
 export default TournamentListPage;

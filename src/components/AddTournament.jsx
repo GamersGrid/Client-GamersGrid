@@ -58,5 +58,4 @@ function AddTournament(props) {
     </div>
   );
 }
-
 export default AddTournament;

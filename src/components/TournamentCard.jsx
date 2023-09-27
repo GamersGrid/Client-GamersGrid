@@ -8,11 +8,9 @@ function TournamentCard({ game, title, participants, dateTime, _id  }) {
         axios
         .get(`${import.meta.env.VITE_API_URL}/api/games/${game}`)
         .then((response)=>{
-            console.log(response)
             setGameImage(response.data.image)
         })
      })
-     console.log(game)
     return (
         <div className="ProjectCard card">
             <Link to={`/tournaments/${_id}`}>

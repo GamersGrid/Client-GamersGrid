@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useContext } from "react";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
-
+import { AuthContext } from "../context/auth.context";
 function AddTournament(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [prize, setPrize] = useState("");
   const [participants, setParticipants] = useState("");
-  const [selectedGame, setSelectedGame] = useState(""); // Store the selected game separately
-  const [games, setGames] = useState([]); // Store the list of games
+  const [selectedGame, setSelectedGame] = useState(""); 
+  const [games, setGames] = useState([]); 
   const [dateTime, setDateTime] = useState("");
 
   useEffect(() => {
-    // Fetch the list of games from the API when the component mounts
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/games`)
       .then((response) => {
@@ -21,7 +21,7 @@ function AddTournament(props) {
       })
       .catch((error) => console.log(error));
   }, []);
-
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -32,8 +32,9 @@ function AddTournament(props) {
       description,
       prize,
       participants,
-      game: selectedGame, // Use the selectedGame state
+      game: selectedGame,
       dateTime,
+      author: user._id,
     };
 
     const storedToken = localStorage.getItem("authToken");
@@ -47,7 +48,7 @@ function AddTournament(props) {
         setDescription("");
         setPrize("");
         setParticipants("");
-        setSelectedGame(""); // Clear selected game
+        setSelectedGame("");
         setDateTime("");
         navigate("/tournaments");
         props.refreshTournaments();

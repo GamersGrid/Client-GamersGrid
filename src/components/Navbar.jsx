@@ -31,6 +31,9 @@ function Navbar() {
 
       {!isLoggedIn && (
         <>
+          <Link to="/tournaments">
+            <button>Tournaments</button>
+          </Link>
           <Link to="/signup">
             {" "}
             <button>Sign Up</button>{" "}

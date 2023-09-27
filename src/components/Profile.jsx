@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import { Link } from "react-router-dom"; // Importe o Link para criar links de edição
 
 function UserProfile() {
   const { user } = useContext(AuthContext);
@@ -36,6 +37,7 @@ function UserProfile() {
             <li key={tournament._id}>
               <h3>{tournament.title}</h3>
               <p>{tournament.description}</p>
+              <Link to={`/tournaments/edit/${tournament._id}`}>Edit Tournament</Link>
             </li>
           ))}
         </ul>

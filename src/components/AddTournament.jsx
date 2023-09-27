@@ -13,6 +13,7 @@ function AddTournament(props) {
   const [dateTime, setDateTime] = useState("");
 
   useEffect(() => {
+    // Fetch the list of games from the API when the component mounts
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/games`)
       .then((response) => {

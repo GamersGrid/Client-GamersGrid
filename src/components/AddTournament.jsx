@@ -4,13 +4,14 @@ import { useContext } from "react";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import { Link } from "react-router-dom";
 function AddTournament(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [prize, setPrize] = useState("");
   const [participants, setParticipants] = useState("");
-  const [selectedGame, setSelectedGame] = useState(""); 
-  const [games, setGames] = useState([]); 
+  const [selectedGame, setSelectedGame] = useState("");
+  const [games, setGames] = useState([]);
   const [dateTime, setDateTime] = useState("");
 
   useEffect(() => {
@@ -103,6 +104,12 @@ function AddTournament(props) {
             </option>
           ))}
         </select>
+        <Link to="/games/create">
+          <button>
+            Cant see your game ? <br />
+            click on this link to add yours
+          </button>
+        </Link>
         <label>Date and time:</label>
         <input
           type="datetime-local"

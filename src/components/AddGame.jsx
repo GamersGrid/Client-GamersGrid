@@ -31,6 +31,7 @@ function AddGames(props) {
                 setImage("");
                 navigate("/addtournament");
                 props.refreshGames();
+                
             })
             .catch((error) => console.log(error));
     };

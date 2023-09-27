@@ -21,6 +21,9 @@ function Navbar() {
           <Link to="/addtournament">
             <button>Add Tournament</button>
           </Link>
+          <Link to="/profile">
+            <button>Profile</button>
+          </Link>
           <Link to="/games/create">
             <button>Add Game</button>
           </Link>

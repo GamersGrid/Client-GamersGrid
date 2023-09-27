@@ -13,6 +13,7 @@ import AddTournamentPage from './pages/AddTournamentPage';
 import TournamentDetailsPage from './pages/TournamentDetailsPage';
 import EditTournamentPage from './pages/EditTournamentPage';
 import AddGamePage from './pages/AddGamePage';
+import UserProfile from './components/Profile';
 function App() {
   
 
@@ -22,7 +23,7 @@ function App() {
       
       <Routes>
         <Route path="/" element={<HomePage/>} />
-
+        <Route path="/profile" element={<UserProfile/>}/>
         <Route path="/tournaments" element={<TournamentListPage/>}/>
         <Route path="/signup" element={<IsAnon> <Signup /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <Login /> </IsAnon>} />

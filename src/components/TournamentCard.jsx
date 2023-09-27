@@ -12,7 +12,7 @@ function TournamentCard({ game, title, participants, dateTime, _id  }) {
         })
      })
     return (
-        <div className="ProjectCard card">
+        <div className="tournament card">
             <Link to={`/tournaments/${_id}`}>
                 {gameImage && <img src={gameImage} alt="Game Image" />}
                 <h3>{title}</h3>

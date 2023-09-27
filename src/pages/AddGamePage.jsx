@@ -1,4 +1,7 @@
-module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+import AddGame from "../components/AddGame"
+
+export default function AddGamePage(){ 
+    return ( 
+        <h1><AddGame/></h1>
+    )
 }
-export default function AddGame() {}

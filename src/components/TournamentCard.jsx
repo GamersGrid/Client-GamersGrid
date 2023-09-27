@@ -1,43 +1,47 @@
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
+import '../App.css';
 function TournamentCard({ game, title, participants, dateTime, _id }) {
-    const [gameImage, setGameImage] = useState(null);
+  const [gameImage, setGameImage] = useState(null);
 
-    useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/api/games/${game}`).then((response) => {
-            setGameImage(response.data.image);
-        });
-    }, []);
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_API_URL}/api/games/${game}`).then((response) => {
+      setGameImage(response.data.image);
+    });
+  }, []);
 
-
-    const formatDateTime = (isoDateTime) => {
-        const date = new Date(isoDateTime);
-        const options = {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            timeZoneName: "short",
-        };
-        return (
-            date.toLocaleDateString("en-US", options)
-        );
+  const formatDateTime = (isoDateTime) => {
+    const date = new Date(isoDateTime);
+    const options = {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZoneName: "short",
     };
+    return date.toLocaleDateString("en-US", options);
+  };
 
-
-    return (
-        <div className="tournament card">
-            <Link to={`/tournaments/${_id}`}>
-                {gameImage && <img src={gameImage} alt="Game Image" />}
-                <h3>{title}</h3>
-                <h3>{participants}</h3>
-                <h3>{formatDateTime(dateTime)}</h3>
-            </Link>
-        </div>
-    );
+  return (
+    <div className="tournament-card">
+      <Link to={`/tournaments/${_id}`} className="tournament-link">
+        {gameImage && (
+          <div className="image-container">
+            <img
+              src={gameImage}
+              alt="Game Image"
+              className="tournament-image"
+            />
+          </div>
+        )}
+        <h3 className="tournament-title">{title}</h3>
+        <p className="tournament-details">Participants: {participants}</p>
+        <p className="tournament-details">Date & Time: {formatDateTime(dateTime)}</p>
+      </Link>
+    </div>
+  );
 }
 
 export default TournamentCard;

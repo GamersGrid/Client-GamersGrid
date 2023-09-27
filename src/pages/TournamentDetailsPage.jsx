@@ -1,7 +1,9 @@
-import { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import TournamentCard from "../components/TournamentCard";
+import '../App.css';
 
 function TournamentDetailsPage(props) {
     const [tournament, setTournament] = useState(null);
@@ -27,33 +29,36 @@ function TournamentDetailsPage(props) {
         getTournament();
     }, []);
 
-   
     const isAuthor = tournament && user && tournament.author === user._id;
 
     return (
         <div className="TournamentDetails">
             {tournament && (
                 <>
-                    <h1>{tournament.title}</h1>
-                    <p>{tournament.description}</p>
+
+                    <TournamentCard
+                        game={tournament.game}
+                        title={tournament.title}
+                        participants={tournament.participants}
+                        dateTime={tournament.dateTime}
+                        _id={tournament._id}
+                    />
                 </>
             )}
 
-            <Link to="/tournaments">
-                <button>Back to tournaments</button>
-            </Link>
-
-            {isAuthor && (
-                <Link to={`/tournaments/edit/${tournamentId}`}>
-                    <button>Edit tournament</button>
+            <div className="button-container">
+                <Link to="/tournaments">
+                    <button>Back to Tournament List</button>
                 </Link>
-            )}
+
+                {isAuthor && (
+                    <Link to={`/tournaments/edit/${tournamentId}`}>
+                        <button>Edit Tournament</button>
+                    </Link>
+                )}
+            </div>
         </div>
     );
 }
 
 export default TournamentDetailsPage;
-
-
-
-

@@ -12,6 +12,7 @@ import IsPrivate from './components/IsPrivate';
 import AddTournamentPage from './pages/AddTournamentPage';
 import TournamentDetailsPage from './pages/TournamentDetailsPage';
 import EditTournamentPage from './pages/EditTournamentPage';
+import AddGamePage from './pages/AddGamePage';
 function App() {
   
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/addtournament" element={<AddTournamentPage/>}/>
         <Route path="/tournaments/:tournamentId" element={<TournamentDetailsPage/>}/>
         <Route path="/tournaments/edit/:tournamentId" element={<EditTournamentPage />}/>
+        <Route path="/games/create" element={<AddGamePage />}/>
 
       </Routes>
     </>

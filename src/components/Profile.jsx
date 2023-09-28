@@ -1,6 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import { Link } from "react-router-dom";
+import "../App.css";
 
 function UserProfile() {
   const { user } = useContext(AuthContext);
@@ -34,12 +36,20 @@ console.log({user})
         <ul>
           {userTournaments.map((tournament) => (
             <li key={tournament._id}>
+      <h2>User's Tournaments</h2>
+      <div className="tournament-grid">
+        {userTournaments.length === 0 ? (
+          <p>No tournaments created by this user.</p>
+        ) : (
+          userTournaments.map((tournament) => (
+            <div key={tournament._id} className="tournament-card">
               <h3>{tournament.title}</h3>
               <p>{tournament.description}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+              <Link to={`/tournaments/edit/${tournament._id}`}>Edit Tournament</Link>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 }

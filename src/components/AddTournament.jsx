@@ -5,6 +5,8 @@ import "../App.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
+import "../App.css";
+
 function AddTournament(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -62,61 +64,78 @@ function AddTournament(props) {
       <h3>Add Tournament</h3>
 
       <form onSubmit={handleSubmit}>
-        <label>Title:</label>
-        <input
-          type="text"
-          name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+        <div className="form-row">
 
-        <label>Description:</label>
-        <input
-          type="text"
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <label>Prize:</label>
-        <input
-          type="text"
-          name="prize"
-          value={prize}
-          onChange={(e) => setPrize(e.target.value)}
-        />
-        <label>Participants:</label>
-        <input
-          type="text"
-          name="participants"
-          value={participants}
-          onChange={(e) => setParticipants(e.target.value)}
-        />
-        <label>Game:</label>
-        <select
-          name="game"
-          value={selectedGame}
-          onChange={(e) => setSelectedGame(e.target.value)} // Update selectedGame, not the entire game state
-        >
-          <option value="">Select a game</option>
-          {games.map((game) => (
-            <option key={game._id} value={game._id}>
-              {game.title}
-            </option>
-          ))}
-        </select>
+          <div className="form-column">
+            <label>Title:</label>
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <label>Description:</label>
+            <input
+              type="text"
+              name="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+
+          <div className="form-column">
+            <label>Prize:</label>
+            <input
+              type="text"
+              name="prize"
+              value={prize}
+              onChange={(e) => setPrize(e.target.value)}
+            />
+            <label>Participants:</label>
+            <input
+              type="text"
+              name="participants"
+              value={participants}
+              onChange={(e) => setParticipants(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-column">
+            <label>Game:</label>
+            <select
+              name="game"
+              value={selectedGame}
+              onChange={(e) => setSelectedGame(e.target.value)}
+            >
+              <option value="">Select a game</option>
+              {games.map((game) => (
+                <option key={game._id} value={game._id}>
+                  {game.title}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="form-column">
+            <label>Date and time:</label>
+            <input
+              type="datetime-local"
+              name="dateTime"
+              value={dateTime}
+              onChange={(e) => setDateTime(e.target.value)}
+            />
+          </div>
+        </div>
+
         <Link to="/games/create">
           <button>
-            Cant see your game ? <br />
-            click on this link to add yours
+            Can't see your game? <br />
+            Click on this button to add yours
           </button>
         </Link>
-        <label>Date and time:</label>
-        <input
-          type="datetime-local"
-          name="dateTime"
-          value={dateTime}
-          onChange={(e) => setDateTime(e.target.value)}
-        />
+
         <button type="submit">Submit</button>
       </form>
     </div>

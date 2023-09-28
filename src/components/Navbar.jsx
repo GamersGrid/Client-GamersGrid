@@ -1,55 +1,61 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import "../App.css";
 
 function Navbar() {
-  // Subscribe to the AuthContext to gain access to
-  // the values from AuthContext.Provider `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
+    <nav className="navbar">
+      <div className="navbar-left">
+        <Link to="/">
+          <img
+            src="../Resources BeOne/hierarchy.png"
+            alt="Logo"
+            className="navbar-logo"
+          />
+        </Link>
+        <Link to="/tournaments" className="navbar-link">
+          Tournaments
+        </Link>
+        {isLoggedIn && (
+          <>
+            <Link to="/addtournament" className="navbar-link">
+              Add Tournament
+            </Link>
+            <Link to="/games/create" className="navbar-link">
+              Add Game
+            </Link>
 
-      {isLoggedIn && (
-        <>
-          <Link to="/tournaments">
-            <button>Tournaments</button>
-          </Link>
-          <Link to="/addtournament">
-            <button>Add Tournament</button>
-          </Link>
-          <Link to="/profile">
-            <button>Profile</button>
-          </Link>
-          <Link to="/games/create">
-            <button>Add Game</button>
-          </Link>
-          <Link to="/">
-            <button onClick={logOutUser}>Logout</button>
-          <span>{user && user.name}</span>
-          </Link>
-          
-        </>
-      )}
+          </>
+        )}
+      </div>
 
-      {!isLoggedIn && (
-        <>
-          <Link to="/tournaments">
-            <button>Tournaments</button>
-          </Link>
-          <Link to="/signup">
-            {" "}
-            <button>Sign Up</button>{" "}
-          </Link>
-          <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
-          </Link>
-        </>
-      )}
+      <div className="navbar-right">
+        {!isLoggedIn && (
+          <>
+            <Link to="/signup" className="navbar-link">
+              Sign Up
+            </Link>
+            <Link to="/login" className="navbar-link">
+              Login
+            </Link>
+          </>
+        )}
+
+        {isLoggedIn && (
+          <>
+            <Link to="/profile" className="navbar-link">
+              Profile
+            </Link>
+            <button onClick={logOutUser} className="logout-button">
+              Logout
+            </button>
+            <span className="user-name">{user && user.name}</span>
+          </>
+        )}
+      </div>
     </nav>
   );
 }

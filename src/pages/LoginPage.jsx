@@ -1,7 +1,8 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import "../App.css";
 
 function LoginPage(props) {
   const [email, setEmail] = useState("");
@@ -37,24 +38,41 @@ function LoginPage(props) {
       <h1>Login</h1>
 
       <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <div className="form-group">
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+            className="form-control"
+          />
+        </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+        <div className="form-group">
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+            className="form-control"
+          />
+        </div>
 
-        <button type="submit">Login</button>
+        <button type="submit" className="btn btn-primary">
+          Login
+        </button>
       </form>
+
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link to={"/signup"} className="btn btn-info">
+        Sign Up
+      </Link>
     </div>
+
   );
 }
 

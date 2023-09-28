@@ -2,10 +2,11 @@ import { useState } from "react";
 import axios from "axios";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
+import "../App.css"
 
 function AddGames(props) {
     const [title, setTitle] = useState("");
-    const [type, setType] = useState(""); 
+    const [type, setType] = useState("");
     const [image, setImage] = useState("");
     const navigate = useNavigate();
 
@@ -14,7 +15,7 @@ function AddGames(props) {
 
         const requestBody = {
             title,
-            type, 
+            type,
             image,
         };
 
@@ -25,13 +26,13 @@ function AddGames(props) {
                 headers: { Authorization: `Bearer ${storedToken}` },
             })
             .then((response) => {
-                // Reset the state
+
                 setTitle("");
-                setType(""); 
+                setType("");
                 setImage("");
                 navigate("/addtournament");
                 props.refreshGames();
-                
+
             })
             .catch((error) => console.log(error));
     };
@@ -80,6 +81,7 @@ function AddGames(props) {
                     type="text"
                     name="image"
                     value={image}
+                    placeholder="URL Link"
                     onChange={(e) => setImage(e.target.value)}
                 />
 

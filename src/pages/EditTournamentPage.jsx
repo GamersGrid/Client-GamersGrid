@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from "axios";
-
-
+import '../App.css'; 
 
 function EditTournamentPage(props) {
     const [title, setTitle] = useState("");
@@ -65,14 +64,15 @@ function EditTournamentPage(props) {
                     name="description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                />
+                    />
 
-                <button type="submit">Update Tournament</button>
-            </form>
-
-            <button onClick={deleteTournament}>Delete Tournament</button>
-        </div>
-    );
-}
+                    <div className="button-container">
+                        <button type="submit">Update Tournament</button>
+                        <button onClick={deleteTournament}>Delete Tournament</button>
+                    </div>
+                </form>
+            </div>
+        );
+    }
 
 export default EditTournamentPage;

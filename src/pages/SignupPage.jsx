@@ -37,7 +37,7 @@ function Signup(props) {
     return (
         <div className="SignupPage">
             <h1>Sign Up</h1>
-    
+
             <form onSubmit={handleSignupSubmit}>
                 <label>Email:</label>
                 <input
@@ -46,7 +46,7 @@ function Signup(props) {
                     value={email}
                     onChange={handleEmail}
                 />
-    
+
                 <label>Password:</label>
                 <input
                     type="password"
@@ -54,7 +54,7 @@ function Signup(props) {
                     value={password}
                     onChange={handlePassword}
                 />
-    
+
                 <label>Username:</label>
                 <input
                     type="text"
@@ -62,12 +62,12 @@ function Signup(props) {
                     value={username}
                     onChange={handleUserName}
                 />
-    
+
                 <button type="submit">Sign Up</button>
             </form>
-    
+
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-    
+
             <p>Already have account?</p>
             <Link to={"/login"}> Login</Link>
         </div>

@@ -51,10 +51,10 @@ function AddGames(props) {
 
     return (
         <div className="AddGames">
-            <h3>Add Game</h3>
+            <h3> - Add Game -</h3>
 
             <form onSubmit={handleSubmit}>
-                <label>Title:</label>
+                <label>Title</label>
                 <input
                     type="text"
                     name="title"
@@ -62,7 +62,7 @@ function AddGames(props) {
                     onChange={(e) => setTitle(e.target.value)}
                 />
 
-                <label>Type:</label>
+                <label>Type</label>
                 <select
                     name="type"
                     value={type}
@@ -76,7 +76,7 @@ function AddGames(props) {
                     ))}
                 </select>
 
-                <label>Image:</label>
+                <label>Image</label>
                 <input
                     type="text"
                     name="image"

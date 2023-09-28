@@ -326,7 +326,9 @@ body {
 }
 
 .AddGames h3 {
+    font-size: 60px;
     margin-bottom: 20px;
+    font-family: 'Tweedy_Erc_01', sans-serif;
 }
 
 .AddGames form {

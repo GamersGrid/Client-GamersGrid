@@ -11,7 +11,7 @@ function Navbar() {
       <div className="navbar-left">
         <Link to="/">
           <img
-            src="client-GamersGrid\src\Resources BeOne\hierarchy.png"
+            src="./public/resourcesgg/hierarchy.png"
             alt="Logo"
             className="navbar-logo"
           />

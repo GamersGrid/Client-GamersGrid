@@ -21,7 +21,7 @@ function TournamentCard({ game, title, participants, dateTime, _id }) {
       minute: "2-digit",
       timeZoneName: "short",
     };
-    return date.toLocaleDateString("en-US", options);
+    return date.toLocaleDateString("en-GB", options);
   };
 
   return (
@@ -38,7 +38,7 @@ function TournamentCard({ game, title, participants, dateTime, _id }) {
         )}
         <h3 className="tournament-title">{title}</h3>
         <p className="tournament-details">Participants: {participants}</p>
-        <p className="tournament-details">Date & Time: {formatDateTime(dateTime)}</p>
+        <p className="tournament-details">{formatDateTime(dateTime)}</p>
       </Link>
     </div>
   );

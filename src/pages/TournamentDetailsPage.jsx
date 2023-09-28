@@ -39,6 +39,8 @@ function TournamentDetailsPage(props) {
                     <TournamentCard
                         game={tournament.game}
                         title={tournament.title}
+                        description={tournament.description}
+                        prize={tournament.prize}
                         participants={tournament.participants}
                         dateTime={tournament.dateTime}
                         _id={tournament._id}

@@ -36,6 +36,7 @@ console.log({user})
         ) : (
           userTournaments.map((tournament) => (
             <div key={tournament._id} className="tournament-card">
+              
               <h3>{tournament.title}</h3>
               <p>{tournament.description}</p>
               <Link to={`/tournaments/edit/${tournament._id}`}>Edit Tournament</Link>

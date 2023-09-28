@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import logo from "../images/hierarchy.png"
 import "../App.css";
 
 function Navbar() {
@@ -11,7 +12,7 @@ function Navbar() {
       <div className="navbar-left">
         <Link to="/">
           <img
-            src="../src/images/hierarchy.png"
+            src={logo}
             alt="Logo"
             className="navbar-logo"
           />

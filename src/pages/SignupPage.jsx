@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../App.css"; // Import your CSS file here
-
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 function Signup(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUserName] = useState("");
     const [errorMessage, setErrorMessage] = useState(undefined);
-
+    const { storeToken, authenticateUser } = useContext(AuthContext)
     const navigate = useNavigate();
-
     const handleEmail = (e) => setEmail(e.target.value);
     const handlePassword = (e) => setPassword(e.target.value);
     const handleUserName = (e) => setUserName(e.target.value);
@@ -23,8 +23,9 @@ function Signup(props) {
         axios
             .post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
             .then((response) => {
-                console.log(response.data);
-                navigate('/login');
+                storeToken(response.data.authToken)
+                authenticateUser();
+                navigate('/');
             })
             .catch((error) => {
                 const errorDescription = error.response.data.message;

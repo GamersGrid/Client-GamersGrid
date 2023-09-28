@@ -25,16 +25,16 @@ function AddTournament(props) {
       .catch((error) => console.log(error));
   }, []);
 
-  const today = new Date().toISOString().split("T")[0]; 
+  const today = new Date().toISOString().split("T")[0];
+  const minDateTime = today + "T00:00"; // Minimum date and time in ISO format
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const selectedDate = new Date(dateTime).toISOString(); 
-    const currentDateTime = new Date().toISOString(); 
+    const selectedDate = new Date(dateTime).toISOString();
+    const currentDateTime = new Date().toISOString();
 
     if (selectedDate < currentDateTime) {
-      
       alert("Please select a future date and time.");
       return;
     }
@@ -45,7 +45,7 @@ function AddTournament(props) {
       prize,
       participants,
       game: selectedGame,
-      dateTime: selectedDate, 
+      dateTime: selectedDate,
       author: user._id,
     };
 
@@ -67,6 +67,7 @@ function AddTournament(props) {
       })
       .catch((error) => console.log(error));
   };
+
   return (
     <div className="AddTournament">
       <h3>Add Tournament</h3>
@@ -88,9 +89,6 @@ function AddTournament(props) {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-          </div>
-
-          <div className="form-column">
             <label>Prize:</label>
             <input
               type="text"
@@ -106,9 +104,7 @@ function AddTournament(props) {
               onChange={(e) => setParticipants(e.target.value)}
             />
           </div>
-        </div>
 
-        <div className="form-row">
           <div className="form-column">
             <label>Game:</label>
             <select
@@ -123,25 +119,21 @@ function AddTournament(props) {
                 </option>
               ))}
             </select>
-          </div>
-
-          <div className="form-column">
             <label>Date and time:</label>
             <input
               type="datetime-local"
               name="dateTime"
               value={dateTime}
-              min={today} 
+              min={minDateTime}
               onChange={(e) => setDateTime(e.target.value)}
             />
           </div>
         </div>
 
+        <p>Can't see your game? </p>
+
         <Link to="/games/create">
-          <button>
-            Can't see your game? <br />
-            Click on this button to add yours
-          </button>
+          <button>Click on this button to add yours</button>
         </Link>
 
         <button type="submit">Submit</button>

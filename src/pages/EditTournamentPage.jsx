@@ -86,43 +86,17 @@ function EditTournamentPage(props) {
 
   return (
     <div className="EditTournamentPage">
-      <h3>Edit the Tournament</h3>
+      <h3>- Edit  your  Tournament -</h3>
       <form onSubmit={handleFormSubmit}>
-        <label>Title:</label>
+        <label>Title</label>
         <input
           type="text"
           name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-
-        <label>Description:</label>
-        <textarea
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-
-        <div className="form-column">
-          <label>Prize:</label>
-          <input
-            type="text"
-            name="prize"
-            value={prize}
-            onChange={(e) => setPrize(e.target.value)}
-          />
-          <label>Participants:</label>
-          <input
-            type="text"
-            name="participants"
-            value={participants}
-            onChange={(e) => setParticipants(e.target.value)}
-          />
-        </div>
-
         <div className="form-row">
           <div className="form-column">
-            <label>Game:</label>
             <select
               name="game"
               value={selectedGame}
@@ -137,21 +111,49 @@ function EditTournamentPage(props) {
             </select>
           </div>
 
-          <div className="form-column">
-            <label>Date and time:</label>
-            <input
-              type="datetime-local"
-              name="dateTime"
-              value={dateTime}
-              onChange={(e) => setDateTime(e.target.value)}
-            />
-          </div>
+
         </div>
 
-        <div className="button-container">
-          <button type="submit">Update Tournament</button>
-          <button onClick={deleteTournament}>Delete Tournament</button>
+        <label>Description</label>
+        <textarea
+          name="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <div className="form-column">
+          <label>Date and time</label>
+          <input
+            type="datetime-local"
+            name="dateTime"
+            value={dateTime}
+            onChange={(e) => setDateTime(e.target.value)}
+          />
         </div>
+
+        <div className="form-column">
+          <label>Prize</label>
+          <input
+            type="text"
+            name="prize"
+            value={prize}
+            onChange={(e) => setPrize(e.target.value)}
+          />
+          <label>Participants</label>
+          <input
+            type="text"
+            name="participants"
+            value={participants}
+            onChange={(e) => setParticipants(e.target.value)}
+          />
+        </div>
+
+
+
+        <div className="button-container">
+          <button type="submit" className="button-container">Update Tournament</button>
+          <button onClick={deleteTournament} className="button-container delete-button">Delete Tournament</button>
+        </div>
+
       </form>
     </div>
   );

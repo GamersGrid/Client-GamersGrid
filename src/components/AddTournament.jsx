@@ -70,43 +70,37 @@ function AddTournament(props) {
 
   return (
     <div className="AddTournament">
-      <h3>Add Tournament</h3>
+      <h3>-Create -  Tournament-</h3>
 
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div className="form-column">
-            <label>Title:</label>
+            <label>Title</label>
             <input
               type="text"
               name="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            <label>Description:</label>
+            <label>Description</label>
             <input
               type="text"
               name="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-            <label>Prize:</label>
+            <label>Prize</label>
             <input
               type="text"
               name="prize"
               value={prize}
               onChange={(e) => setPrize(e.target.value)}
             />
-            <label>Participants:</label>
-            <input
-              type="text"
-              name="participants"
-              value={participants}
-              onChange={(e) => setParticipants(e.target.value)}
-            />
+            
           </div>
 
           <div className="form-column">
-            <label>Game:</label>
+            <label>Game</label>
             <select
               name="game"
               value={selectedGame}
@@ -119,13 +113,20 @@ function AddTournament(props) {
                 </option>
               ))}
             </select>
-            <label>Date and time:</label>
+            <label>Date and time</label>
             <input
               type="datetime-local"
               name="dateTime"
               value={dateTime}
               min={minDateTime}
               onChange={(e) => setDateTime(e.target.value)}
+            />
+            <label>Participants</label>
+            <input
+              type="text"
+              name="participants"
+              value={participants}
+              onChange={(e) => setParticipants(e.target.value)}
             />
           </div>
         </div>

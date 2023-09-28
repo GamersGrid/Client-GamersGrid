@@ -31,12 +31,15 @@ function TournamentListPage() {
 
   return (
     <div className="tournament-list">
+      <h2>-Tournament - List-</h2>
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        tournaments.map((tournament) => (
-          <TournamentCard key={tournament._id} {...tournament} />
-        ))
+        <div className="tournament-cards">
+          {tournaments.map((tournament) => (
+            <TournamentCard key={tournament._id} {...tournament} />
+          ))}
+        </div>
       )}
     </div>
   );

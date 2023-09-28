@@ -542,5 +542,4 @@ body {
 
 .move-text {
     animation: moveText 1s ease-in-out infinite;
-    /* Ajuste a duração e o timing da animação conforme necessário */
 }

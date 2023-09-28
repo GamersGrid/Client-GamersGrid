@@ -25,16 +25,16 @@ function AddTournament(props) {
       .catch((error) => console.log(error));
   }, []);
 
-  const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
+  const today = new Date().toISOString().split("T")[0]; 
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const selectedDate = new Date(dateTime).toISOString(); // Convert selected date to ISO format
-    const currentDateTime = new Date().toISOString(); // Get current date and time in ISO format
+    const selectedDate = new Date(dateTime).toISOString(); 
+    const currentDateTime = new Date().toISOString(); 
 
     if (selectedDate < currentDateTime) {
-      // Check if selected date is in the past
+      
       alert("Please select a future date and time.");
       return;
     }
@@ -45,7 +45,7 @@ function AddTournament(props) {
       prize,
       participants,
       game: selectedGame,
-      dateTime: selectedDate, // Use selectedDate instead of dateTime
+      dateTime: selectedDate, 
       author: user._id,
     };
 
@@ -131,7 +131,7 @@ function AddTournament(props) {
               type="datetime-local"
               name="dateTime"
               value={dateTime}
-              min={today} // Set the minimum date to today
+              min={today} 
               onChange={(e) => setDateTime(e.target.value)}
             />
           </div>

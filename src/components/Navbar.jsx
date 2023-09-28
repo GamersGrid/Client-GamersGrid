@@ -14,12 +14,12 @@ function Navbar() {
           <img src={logo} alt="Logo" className="navbar-logo" />
         </Link>
         <Link to="/tournaments" className="navbar-link">
-          Tournaments
+           |    Tournaments
         </Link>
         {isLoggedIn && (
           <>
             <Link to="/addtournament" className="navbar-link">
-              Create Tournament
+             | Create Tournament
             </Link>
           </>
         )}
@@ -40,7 +40,7 @@ function Navbar() {
         {isLoggedIn && (
           <>
             <Link to="/profile" className="navbar-link">
-              Profile
+              Profile |
             </Link>
             <Link to="/" className="homepage">
               <button onClick={logOutUser} className="logout-button">

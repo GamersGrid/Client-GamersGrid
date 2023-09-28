@@ -50,7 +50,7 @@ body {
 .navbar-logo {
     max-height: 50px;
     margin-right: 40px;
-    margin-left: 40px; /* Adicione esta linha para a margem à esquerda */
+    margin-left: 40px;
 }
 
 .navbar-link {
@@ -90,27 +90,44 @@ body {
 /* TournamentList styles */
 .tournament-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 20px;
-    margin-top: 60px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.tournament-list h2 {
+
+    margin-bottom: 10px;
+    color: #0a0a0a;
+    font-size: 60px;
+    font-family: 'Tweedy_Erc_01', sans-serif;
+
+
 }
 
 .tournament-list .tournament-item {
     flex-basis: calc(25% - 20px);
-    /* 25% - 20px para 4 itens por linha com o gap de 20px */
     box-sizing: border-box;
 }
 
 .tournament-card {
-    width: 25%;
-    max-width: 300px;
     flex: 1;
+    max-width: 100%;
+    box-sizing: border-box;
     text-align: center;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 20px;
+}
+
+.tournament-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
 }
 
 .tournament-card:hover {
@@ -123,6 +140,7 @@ body {
     font-size: 1rem;
     text-decoration: none;
 }
+
 
 .tournament-image {
     max-width: 100%;
@@ -152,7 +170,7 @@ body {
 }
 
 .button-container button {
-    flex: 1;
+    width: 150;
     padding: 10px 20px;
     margin: 5px;
     background-color: #8E44AD;
@@ -167,6 +185,15 @@ body {
     background-color: #429dda;
 }
 
+.button-container button.delete-button {
+    background-color: #8E44AD;
+}
+
+.button-container button.delete-button:hover {
+    background-color: #da211b;
+}
+
+
 /* EditTournamentPage styles */
 .EditTournamentPage {
     display: flex;
@@ -177,7 +204,9 @@ body {
 }
 
 .EditTournamentPage h3 {
-    margin-bottom: 20px;
+    font-size: 60px;
+    margin-bottom: 30px;
+    font-family: 'Tweedy_Erc_01', sans-serif;
 }
 
 .EditTournamentPage form {
@@ -226,7 +255,9 @@ body {
 }
 
 .AddTournament h3 {
-    margin-bottom: 20px;
+    font-size: 60px;
+    margin-bottom: 30px;
+    font-family: 'Tweedy_Erc_01', sans-serif;
 }
 
 .AddTournament form {
@@ -269,6 +300,7 @@ body {
 
 .AddTournament .form-row {
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 20px;
@@ -277,6 +309,11 @@ body {
 .AddTournament .form-column {
     flex: 1;
     margin-right: 10px;
+}
+
+.form-column {
+
+    text-align: center;
 }
 
 /* AddGames styles */
@@ -342,8 +379,9 @@ body {
 }
 
 .UserProfile h2 {
-    font-size: 24px;
+    font-size: 60px;
     margin-bottom: 20px;
+    font-family: 'Tweedy_Erc_01', sans-serif;
 }
 
 .UserProfile p {
@@ -366,8 +404,11 @@ body {
 }
 
 .tournament-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+    color: #521091
 }
 
 .tournament-card a {
@@ -408,9 +449,10 @@ body {
 }
 
 .login-heading {
-    font-size: 24px;
-    color: #4b0768;
+    color: #0d0d0e;
     margin-bottom: 20px;
+    font-size: 60px;
+    font-family: 'Tweedy_Erc_01', sans-serif;
 }
 
 .login-label {
@@ -472,9 +514,10 @@ body {
 }
 
 .signup-heading {
-    font-size: 24px;
-    color: #4b0768;
+    font-size: 60px;
+    color: #0a0a0a;
     margin-bottom: 20px;
+    font-family: 'Tweedy_Erc_01', sans-serif;
 }
 
 .signup-label {

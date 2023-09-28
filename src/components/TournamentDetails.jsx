@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import '../App.css';
+import "../App.css";
 
-function TournamentDetails({ game, title, description, prize, participants, dateTime, _id }) {
+function TournamentDetails({
+  game,
+  title,
+  description,
+  prize,
+  participants,
+  dateTime,
+  _id,
+}) {
   const [gameImage, setGameImage] = useState(null);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/api/games/${game}`).then((response) => {
-      setGameImage(response.data.image);
-    });
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/games/${game}`)
+      .then((response) => {
+        setGameImage(response.data.image);
+      });
   }, []);
 
   const formatDateTime = (isoDateTime) => {

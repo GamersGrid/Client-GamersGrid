@@ -7,7 +7,7 @@ import "../App.css";
 function UserProfile() {
   const { user } = useContext(AuthContext);
   const [userTournaments, setUserTournaments] = useState([]);
-console.log({user})
+  console.log({ user });
   useEffect(() => {
     if (user) {
       axios
@@ -36,10 +36,11 @@ console.log({user})
         ) : (
           userTournaments.map((tournament) => (
             <div key={tournament._id} className="tournament-card">
-              
               <h3>{tournament.title}</h3>
               <p>{tournament.description}</p>
-              <Link to={`/tournaments/edit/${tournament._id}`}>Edit Tournament</Link>
+              <Link to={`/tournaments/edit/${tournament._id}`}>
+                Edit Tournament
+              </Link>
             </div>
           ))
         )}

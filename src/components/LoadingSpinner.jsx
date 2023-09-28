@@ -2,11 +2,11 @@ import React from "react";
 import { css } from "@emotion/react";
 import { ScaleLoader } from "react-spinners";
 
- function LoadingSpinner() {
+function LoadingSpinner() {
   const override = css`
     display: block;
     margin: 0 auto;
-    border-color: blue; 
+    border-color: blue;
   `;
 
   return (
@@ -15,4 +15,4 @@ import { ScaleLoader } from "react-spinners";
     </div>
   );
 }
-export default  LoadingSpinner
+export default LoadingSpinner;

@@ -65,11 +65,11 @@ function LoginPage(props) {
         </button>
       </form>
 
-      {errorMessage && (
-        <p className="login-error">{errorMessage}</p>
-      )}
+      {errorMessage && <p className="login-error">{errorMessage}</p>}
 
-      <p className="login-link">Don't have an account yet? <Link to="/signup">Sign Up</Link></p>
+      <p className="login-link">
+        Don't have an account yet? <Link to="/signup">Sign Up</Link>
+      </p>
     </div>
   );
 }

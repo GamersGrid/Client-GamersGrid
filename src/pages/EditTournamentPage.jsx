@@ -22,7 +22,6 @@ function EditTournamentPage(props) {
       .then((response) => {
         const tournament = response.data;
 
-        
         if (user._id === tournament.author) {
           setTitle(tournament.title);
           setDescription(tournament.description);
@@ -32,7 +31,6 @@ function EditTournamentPage(props) {
           setDateTime(tournament.dateTime);
           props.refreshTournaments();
         } else {
-          
           navigate(`/tournaments/${tournamentId}`);
         }
       })

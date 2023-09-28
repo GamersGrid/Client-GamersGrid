@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 import TournamentCard from "../components/TournamentCard";
 import LoadingSpinner from "../components/LoadingSpinner.jsx";
@@ -10,7 +9,7 @@ function TournamentListPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   const getAllTournaments = () => {
-    const storedToken = localStorage.getItem("authToken"); 
+    const storedToken = localStorage.getItem("authToken");
 
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/tournaments`, {

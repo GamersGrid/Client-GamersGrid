@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import logo from "../images/hierarchy.png";
 import "../App.css";
 
 function Navbar() {
@@ -10,11 +11,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-left">
         <Link to="/">
-          <img
-            src="../public/resourcesgg/hierarchy.png"
-            alt="Logo"
-            className="navbar-logo"
-          />
+          <img src={logo} alt="Logo" className="navbar-logo" />
         </Link>
         <Link to="/tournaments" className="navbar-link">
           Tournaments
@@ -24,7 +21,6 @@ function Navbar() {
             <Link to="/addtournament" className="navbar-link">
               Create Tournament
             </Link>
-
           </>
         )}
       </div>
@@ -47,9 +43,9 @@ function Navbar() {
               Profile
             </Link>
             <Link to="/" className="homepage">
-            <button onClick={logOutUser} className="logout-button">
-              Logout
-            </button>
+              <button onClick={logOutUser} className="logout-button">
+                Logout
+              </button>
             </Link>
             <span className="user-name">{user && user.name}</span>
           </>

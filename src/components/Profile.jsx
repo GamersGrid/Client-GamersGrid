@@ -8,7 +8,7 @@ import TournamentCard from "./TournamentCard";
 function UserProfile() {
   const { user } = useContext(AuthContext);
   const [userTournaments, setUserTournaments] = useState([]);
-console.log({user})
+  console.log({ user });
   useEffect(() => {
     if (user) {
       axios

@@ -21,13 +21,20 @@ function EditTournamentPage(props) {
       .get(`${import.meta.env.VITE_API_URL}/api/tournaments/${tournamentId}`)
       .then((response) => {
         const tournament = response.data;
-        setTitle(tournament.title);
-        setDescription(tournament.description);
-        setPrize(tournament.prize);
-        setParticipants(tournament.participants);
-        setSelectedGame(tournament.game);
-        setDateTime(tournament.dateTime);
-        props.refreshTournaments();
+
+        
+        if (user._id === tournament.author) {
+          setTitle(tournament.title);
+          setDescription(tournament.description);
+          setPrize(tournament.prize);
+          setParticipants(tournament.participants);
+          setSelectedGame(tournament.game);
+          setDateTime(tournament.dateTime);
+          props.refreshTournaments();
+        } else {
+          
+          navigate(`/tournaments/${tournamentId}`);
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -42,7 +49,7 @@ function EditTournamentPage(props) {
       .catch((error) => {
         console.error(error);
       });
-  }, [tournamentId]);
+  }, [tournamentId, user, navigate, props]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();

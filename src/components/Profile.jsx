@@ -7,7 +7,7 @@ import "../App.css";
 function UserProfile() {
   const { user } = useContext(AuthContext);
   const [userTournaments, setUserTournaments] = useState([]);
-
+console.log({user})
   useEffect(() => {
     if (user) {
       axios

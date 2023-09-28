@@ -22,10 +22,7 @@ function Navbar() {
         {isLoggedIn && (
           <>
             <Link to="/addtournament" className="navbar-link">
-              Add Tournament
-            </Link>
-            <Link to="/games/create" className="navbar-link">
-              Add Game
+              Create Tournament
             </Link>
 
           </>

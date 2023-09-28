@@ -48,8 +48,9 @@ body {
 }
 
 .navbar-logo {
-    max-height: 40px;
-    margin-right: 20px;
+    max-height: 50px;
+    margin-right: 40px;
+    margin-left: 40px; /* Adicione esta linha para a margem à esquerda */
 }
 
 .navbar-link {
@@ -371,7 +372,7 @@ body {
 
 .tournament-card a {
     text-decoration: none;
-    color: #a840d4;
+    color: #070707;
     font-weight: bold;
 }
 

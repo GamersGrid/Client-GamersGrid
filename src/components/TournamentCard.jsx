@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../App.css";
-function TournamentCard({ game, title, participants, dateTime, _id }) {
+function TournamentCard({ game, title, participants, dateTime, _id, prize }) {
   const [gameImage, setGameImage] = useState(null);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function TournamentCard({ game, title, participants, dateTime, _id }) {
           </div>
         )}
         <h3 className="tournament-title">{title}</h3>
-        <p className="tournament-details">Participants: {participants}</p>
+        <p className="tournament-details">Prize: {prize}</p>
         <p className="tournament-details">{formatDateTime(dateTime)}</p>
       </Link>
     </div>

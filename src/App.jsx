@@ -23,12 +23,12 @@ function App() {
       
       <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/profile" element={<UserProfile/>}/>
+        <Route path="/profile" element={<IsPrivate><UserProfile/></IsPrivate>}/>
         <Route path="/tournaments" element={<TournamentListPage/>}/>
         <Route path="/signup" element={<IsAnon> <Signup /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <Login /> </IsAnon>} />
-        <Route path="/addtournament" element={<AddTournamentPage/>}/>
-        <Route path="/tournaments/:tournamentId" element={<TournamentDetailsPage/>}/>
+        <Route path="/addtournament" element={<IsPrivate><AddTournamentPage/></IsPrivate>}/>
+        <Route path="/tournaments/:tournamentId" element={<IsPrivate><TournamentDetailsPage/></IsPrivate>}/>
         <Route path="/tournaments/edit/:tournamentId" element={<EditTournamentPage />}/>
         <Route path="/games/create" element={<AddGamePage />}/>
 

@@ -11,7 +11,7 @@ function Navbar() {
       <div className="navbar-left">
         <Link to="/">
           <img
-            src="../Resources BeOne/hierarchy.png"
+            src="client-GamersGrid\src\Resources BeOne\hierarchy.png"
             alt="Logo"
             className="navbar-logo"
           />
@@ -49,9 +49,11 @@ function Navbar() {
             <Link to="/profile" className="navbar-link">
               Profile
             </Link>
+            <Link to="/" className="homepage">
             <button onClick={logOutUser} className="logout-button">
               Logout
             </button>
+            </Link>
             <span className="user-name">{user && user.name}</span>
           </>
         )}

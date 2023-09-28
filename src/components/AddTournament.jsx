@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { useContext } from "react";
-import "../App.css";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
 import "../App.css";
+import { useNavigate } from "react-router-dom";
 
 function AddTournament(props) {
   const [title, setTitle] = useState("");
@@ -15,6 +13,8 @@ function AddTournament(props) {
   const [selectedGame, setSelectedGame] = useState("");
   const [games, setGames] = useState([]);
   const [dateTime, setDateTime] = useState("");
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -24,11 +24,20 @@ function AddTournament(props) {
       })
       .catch((error) => console.log(error));
   }, []);
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+
+  const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const selectedDate = new Date(dateTime).toISOString(); // Convert selected date to ISO format
+    const currentDateTime = new Date().toISOString(); // Get current date and time in ISO format
+
+    if (selectedDate < currentDateTime) {
+      // Check if selected date is in the past
+      alert("Please select a future date and time.");
+      return;
+    }
 
     const requestBody = {
       title,
@@ -36,7 +45,7 @@ function AddTournament(props) {
       prize,
       participants,
       game: selectedGame,
-      dateTime,
+      dateTime: selectedDate, // Use selectedDate instead of dateTime
       author: user._id,
     };
 
@@ -58,14 +67,12 @@ function AddTournament(props) {
       })
       .catch((error) => console.log(error));
   };
-
   return (
     <div className="AddTournament">
       <h3>Add Tournament</h3>
 
       <form onSubmit={handleSubmit}>
         <div className="form-row">
-
           <div className="form-column">
             <label>Title:</label>
             <input
@@ -124,6 +131,7 @@ function AddTournament(props) {
               type="datetime-local"
               name="dateTime"
               value={dateTime}
+              min={today} // Set the minimum date to today
               onChange={(e) => setDateTime(e.target.value)}
             />
           </div>

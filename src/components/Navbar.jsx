@@ -27,8 +27,11 @@ function Navbar() {
           <Link to="/games/create">
             <button>Add Game</button>
           </Link>
-          <button onClick={logOutUser}>Logout</button>
+          <Link to="/">
+            <button onClick={logOutUser}>Logout</button>
           <span>{user && user.name}</span>
+          </Link>
+          
         </>
       )}
 

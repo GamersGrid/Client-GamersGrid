@@ -5,7 +5,7 @@ import { AuthContext } from "../context/auth.context";
 function UserProfile() {
   const { user } = useContext(AuthContext);
   const [userTournaments, setUserTournaments] = useState([]);
-
+console.log({user})
   useEffect(() => {
     if (user) {
       axios
@@ -27,9 +27,9 @@ function UserProfile() {
 
   return (
     <div className="UserProfile">
-      <h2>User's Tournaments</h2>
+      <h2> Your Tournaments </h2>
       {userTournaments.length === 0 ? (
-        <p>No tournaments created by this user.</p>
+        <p>No tournaments created by this user</p>
       ) : (
         <ul>
           {userTournaments.map((tournament) => (

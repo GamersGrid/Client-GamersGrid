@@ -11,7 +11,7 @@ function Navbar() {
       <div className="navbar-left">
         <Link to="/">
           <img
-            src="../src/assets/hierarchy.png"
+            src="../src/images/hierarchy.png"
             alt="Logo"
             className="navbar-logo"
           />

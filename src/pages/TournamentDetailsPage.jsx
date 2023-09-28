@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import TournamentCard from "../components/TournamentCard";
 import '../App.css';
+import TournamentDetails from "../components/TournamentDetails";
 
 function TournamentDetailsPage(props) {
     const [tournament, setTournament] = useState(null);
@@ -36,7 +36,7 @@ function TournamentDetailsPage(props) {
             {tournament && (
                 <>
 
-                    <TournamentCard
+                    <TournamentDetails
                         game={tournament.game}
                         title={tournament.title}
                         description={tournament.description}

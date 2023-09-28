@@ -29,14 +29,7 @@ console.log({user})
 
   return (
     <div className="UserProfile">
-      <h2> Your Tournaments </h2>
-      {userTournaments.length === 0 ? (
-        <p>No tournaments created by this user</p>
-      ) : (
-        <ul>
-          {userTournaments.map((tournament) => (
-            <li key={tournament._id}>
-      <h2>User's Tournaments</h2>
+      <h2>{user.username} Tournaments</h2>
       <div className="tournament-grid">
         {userTournaments.length === 0 ? (
           <p>No tournaments created by this user.</p>

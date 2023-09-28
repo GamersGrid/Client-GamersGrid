@@ -384,3 +384,131 @@ body {
 .main-button:hover {
     background-color: #429dda;
 }
+
+/* LoginPage.css */
+
+/* Styles for the LoginPage container */
+.LoginPage {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Styles for the login form */
+.login-form {
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.login-heading {
+    font-size: 24px;
+    color: #4b0768;
+    margin-bottom: 20px;
+}
+
+.login-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.login-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-button {
+    padding: 10px 20px;
+    background-color: #4b0768;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.login-button:hover {
+    background-color: #429dda;
+}
+
+.login-error {
+    color: #c0392b;
+    margin-top: 10px;
+}
+
+.login-link {
+    font-size: 16px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #4b0768;
+}
+
+.login-link:hover {
+    color: #2e86c1;
+}
+
+/* SignupPage.css */
+
+/* Styles for the SignupPage container */
+.SignupPage {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Styles for the signup form */
+.signup-form {
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.signup-heading {
+    font-size: 24px;
+    color: #4b0768;
+    margin-bottom: 20px;
+}
+
+.signup-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.signup-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-button {
+    padding: 10px 20px;
+    background-color: #4b0768;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.signup-button:hover {
+    background-color: #429dda;
+}
+
+.signup-error {
+    color: #c0392b;
+    margin-top: 10px;
+}
+
+.signup-link {
+    font-size: 16px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #4b0768;
+}
+
+.signup-link:hover {
+    color: #2e86c1;
+}

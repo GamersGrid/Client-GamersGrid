@@ -3,6 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
 import "../App.css";
+import TournamentCard from "./TournamentCard"; 
 
 function UserProfile() {
   const { user } = useContext(AuthContext);
@@ -26,7 +27,6 @@ console.log({user})
         });
     }
   }, [user]);
-
   return (
     <div className="UserProfile">
       <h2>{user.username} Tournaments</h2>
@@ -35,12 +35,14 @@ console.log({user})
           <p>No tournaments created by this user.</p>
         ) : (
           userTournaments.map((tournament) => (
-            <div key={tournament._id} className="tournament-card">
-              
-              <h3>{tournament.title}</h3>
-              <p>{tournament.description}</p>
-              <Link to={`/tournaments/edit/${tournament._id}`}>Edit Tournament</Link>
-            </div>
+            <TournamentCard
+              key={tournament._id}
+              game={tournament.game}
+              title={tournament.title}
+              participants={tournament.participants}
+              dateTime={tournament.dateTime}
+              _id={tournament._id}
+            />
           ))
         )}
       </div>

@@ -1,5 +1,7 @@
 # GamersGrid Frontend
 
+![GG LOGO](./src/images/gg.jpg)
+
 ## Description
 This repository contains the frontend code for GamersGrid, a platform for creating and managing gaming tournaments.
 

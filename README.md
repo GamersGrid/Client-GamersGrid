@@ -1,8 +1,40 @@
-# React + Vite
+# GamersGrid Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+This repository contains the frontend code for GamersGrid, a platform for creating and managing gaming tournaments.
 
-Currently, two official plugins are available:
+**IMPORTANT:**
+This is the Frontend (React) repository.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For the backend code, please refer to the [GamersGrid Backend Repository](https://github.com/GamersGrid/Server-GamersGrid).
+
+## Instructions to Run this App on Your Computer
+To run this application on your computer, follow these steps:
+
+1. Clone this repository to your local machine.
+   
+ ```bash
+   git clone https://github.com/GamersGrid/Client-GamersGrid
+Navigate to the project directory.
+
+ ```bash
+Copy code
+cd Client-GamersGrid
+Install the necessary dependencies.
+
+ ```bash
+Copy code
+npm install
+Set up any required environment variables. Refer to the documentation for a list of environment variables needed.
+
+Start the application.
+
+ ```bash
+Copy code
+npm run dev
+Open your web browser and access the application at http://localhost:3000.
+
+Demo
+You can access the deployed version of GamersGrid on Netlify at GamersGrid(https://gamersgrid.netlify.app/)
+
+(Optional) For backend documentation, you can find the API endpoints in the GamersGrid Backend Documentation.

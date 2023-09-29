@@ -28,7 +28,7 @@ npm run dev
 
 Open your web browser and access the application at http://localhost:3000.
 
-Demo
-You can access the deployed version of GamersGrid on Netlify at GamersGrid.
+# Demo
+You can access the deployed version of GamersGrid on Netlify at GamersGrid(https://gamersgrid.netlify.app/).
 
-(Optional) For backend documentation, you can find the API endpoints in the GamersGrid Backend Documentation.
+For backend documentation, you can find the API endpoints in the GamersGrid Backend Documentation.

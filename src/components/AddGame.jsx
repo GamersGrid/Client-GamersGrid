@@ -1,22 +1,23 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import "../App.css";
 import { useNavigate } from "react-router-dom";
-import "../App.css"
+import "../App.css";
 
 function AddGames(props) {
     const [title, setTitle] = useState("");
     const [type, setType] = useState("");
-    const [image, setImage] = useState("");
+    const [image, setImage] = useState(""); 
+
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        const defaultImage = "https://static-cdn.jtvnw.net/ttv-boxart/498566-285x380.jpg";
         const requestBody = {
             title,
             type,
-            image,
+            image: image || defaultImage, 
         };
 
         const storedToken = localStorage.getItem("authToken");
@@ -26,13 +27,11 @@ function AddGames(props) {
                 headers: { Authorization: `Bearer ${storedToken}` },
             })
             .then((response) => {
-
                 setTitle("");
                 setType("");
                 setImage("");
                 navigate("/addtournament");
                 props.refreshGames();
-
             })
             .catch((error) => console.log(error));
     };

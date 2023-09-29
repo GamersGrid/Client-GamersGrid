@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Routes, Route} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 
 import Navbar from "./components/Navbar";
@@ -15,23 +15,28 @@ import EditTournamentPage from './pages/EditTournamentPage';
 import AddGamePage from './pages/AddGamePage';
 import UserProfile from './components/Profile';
 function App() {
-  
+
 
   return (
     <>
-      <Navbar/>
-      
+      <Navbar />
+
       <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/profile" element={<IsPrivate><UserProfile/></IsPrivate>}/>
-        <Route path="/tournaments" element={<TournamentListPage/>}/>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/profile" element={<IsPrivate><UserProfile /></IsPrivate>} />
+        <Route path="/tournaments" element={<TournamentListPage />} />
         <Route path="/signup" element={<IsAnon> <Signup /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <Login /> </IsAnon>} />
-        <Route path="/addtournament" element={<IsPrivate><AddTournamentPage/></IsPrivate>}/>
-        <Route path="/tournaments/:tournamentId" element={<IsPrivate><TournamentDetailsPage/></IsPrivate>}/>
-        <Route path="/tournaments/edit/:tournamentId" element={<EditTournamentPage />}/>
-        <Route path="/games/create" element={<AddGamePage />}/>
-
+        <Route path="/addtournament" element={<IsPrivate><AddTournamentPage /></IsPrivate>} />
+        <Route path="/tournaments/:tournamentId" element={<IsPrivate><TournamentDetailsPage /></IsPrivate>} />
+        <Route path="/tournaments/edit/:tournamentId" element={<EditTournamentPage />} />
+        <Route path="/games/create" element={<AddGamePage />} />
+        <Route
+          path="*"
+          element={
+            <Navigate to="/" />
+          }
+        />
       </Routes>
     </>
   )
